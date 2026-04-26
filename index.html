@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>교대조 근무 현황 포털</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Background elements for glassmorphism -->
+      <div class="bg-shape shape-1"></div>
+      <div class="bg-shape shape-2"></div>
+      
+      <header class="glass-panel">
+        <h1>교대조 근무 현황</h1>
+        <div class="header-controls">
+          <div class="view-toggles">
+            <button class="view-btn active" data-view="main">메인 현황</button>
+            <button class="view-btn" data-view="overview">개괄판 (3개월)</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="content-area">
+        <!-- 메인 현황 (일자별 + 조별 결합) -->
+        <section id="main-view" class="view-section active">
+          <!-- 상단: 일자별 보기 -->
+          <div class="date-selector glass-panel">
+            <div class="header-content">
+              <h2>일자별 근무 현황</h2>
+              <input type="date" id="date-input" class="modern-input" />
+            </div>
+            <div class="daily-status-container" id="daily-status-container">
+              <h2 id="selected-date-title" class="sub-title">일자를 선택해주세요</h2>
+              <div class="shift-cards" id="daily-shifts">
+                <!-- Dynamically populated cards -->
+              </div>
+            </div>
+          </div>
+
+          <!-- 하단: 조별 보기 -->
+          <div id="group-view-container" class="group-view-layout">
+            <div class="group-selector glass-panel">
+              <h2>조별 상세 스케줄</h2>
+              <div class="group-buttons" id="group-buttons">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+            <div class="schedule-container glass-panel" id="group-schedule-container">
+              <div class="schedule-header">
+                <h2 id="selected-group-title">조를 선택해주세요</h2>
+                <div class="month-selector">
+                  <select id="year-select" class="modern-select"></select>
+                  <select id="month-select" class="modern-select"></select>
+                </div>
+              </div>
+              <div class="calendar-grid" id="group-calendar">
+                <!-- Dynamically populated calendar -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 개괄판 뷰 (3개월) -->
+        <section id="overview-view" class="view-section">
+          <div class="overview-header glass-panel">
+            <div class="header-content">
+              <h2>3개월 전체 개괄판</h2>
+              <div class="overview-controls">
+                <select id="overview-year" class="modern-select"></select>
+                <select id="overview-month" class="modern-select"></select>
+                <span>부터 3개월</span>
+              </div>
+            </div>
+          </div>
+          <div id="overview-container" class="overview-tables">
+            <!-- Dynamically populated tables -->
+          </div>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
